@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- Superior -->
+    <div class="containerC">
+        <div class="container">
+            <div class="d-flex align-items-center">
+
+                <div class="flex-shrink-0">
+                    <img class="imgC1" ng-src="https://majii.co{{comercioImagenes[0].url + comercioImagenes[0].img_commerce}}" alt="...">   
+                </div>
+                
+                <div class="flex-grow-1 ms-3">
+
+                    <div class="TituloC p-2 w-100 bd-highlight">
+                        <p class="Titulo">{{comercio.name}}</p>
+                    </div>
+                    
+                    <div class="Calificacion">
+                        <button class="icoEstrella" type="button">
+                            <ion-icon ng-attr-name="{{puntajePromedio >= 1 && 'star' || 'star-outline'}}"></ion-icon>
+                        </button>
+                        <button class="icoEstrella" type="button">
+                            <ion-icon ng-attr-name="{{puntajePromedio >= 2 && 'star' || 'star-outline'}}"></ion-icon>
+                        </button>
+                        <button class="icoEstrella" type="button">
+                            <ion-icon ng-attr-name="{{puntajePromedio >= 3 && 'star' || 'star-outline'}}"></ion-icon>
+                        </button>
+                        <button class="icoEstrella" type="button">
+                            <ion-icon ng-attr-name="{{puntajePromedio >= 4 && 'star' || 'star-outline'}}"></ion-icon>
+                        </button>
+                        <button class="icoEstrella" type="button">
+                            <ion-icon ng-attr-name="{{puntajePromedio >= 5 && 'star' || 'star-outline'}}"></ion-icon>
+                        </button>
+                    </div>
+
+                    <hr class="lineaPunteadaC">
+
+                    <div class="container">
+                        <div class="row conComercio">
+                            <div class="col order-first">Nombre: {{comercio.name}}</div>
+                            <div class="col">Ventas al por mayor: {{ (comercio.proveedores) ? 'Si' : 'No'}}</div>
+                            <div class="col  order-last">Teléfono: {{telefonosArray.join()}}</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="container ">
+                        <div class="row conComercio">
+                            <div class="col order-first">Dirección: {{comercio.address}}</div>
+                            <div class="col">Barrio: {{comercio.neighborhood}}</div>
+                            <div class="col order-last">Comuna: {{comercio.comuna}}</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="container ">
+                        <div class="row conComercio">
+                            <div class="col order-first">Página web:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+    </div>
+    
+    <!-- Top de Productos -->
+    <div class="ContainerC1"> 
+        <h2>Top de productos</h2>
+        <p>{{comercio.top_productos}}</p>
+    </div>
+    <div class="ContainerC1"> 
+        <h2>Descripción</h2>
+        <p>{{comercio.description}}</p>
+    </div>
+    <div class="ContainerC1"> 
+        <div class="container">
+            <div class="row">
+                <div class="C1 col order-first"> Horarios:</div>
+                <div class="C1  col">Domicilios:</div>
+                <div class="C1  col  order-last">Teléfono:</div>
+            </div>
+        </div>
+    </div>
+    <div class="ContainerC1"> 
+        <div class="container">
+            <div class="row">
+                <div class="C col order-first">Semana {{comercio.horario_semana_apertura}} - {{comercio.horario_semana_cierre}}  Sabado {{comercio.horario_sabado_apertura}} - {{comercio.horario_sabado_cierre}} Domingo {{comercio.horario_domingo_apertura}} - {{comercio.horario_domingo_cierre}}</div>
+                <div class="C col">{{comercio.delivery == 2 ? 'Si' : 'No'}}</div>
+                <div class="C col  order-last">{{telefonosArray.length > 0 ? 'Si' : 'No'}}</div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- REDES SOCIALES -->
+    <div class="RedesSociales">
+        <button class="iconC1" target="_blank" ng-if="facebook.id != undefined" ng-click="RedesSociales(facebook.social_media)"><ion-icon name="logo-facebook"></ion-icon></button>
+        <button class="iconC1" target="_blank" ng-if="instagram.id != undefined" ng-click="RedesSociales(instagram.social_media)"><ion-icon name="logo-instagram"></ion-icon></button>
+        <button class="iconC1" target="_blank" ng-if="twitter.id != undefined" ng-click="RedesSociales('https://twitter.com/'+twitter.social_media)"><ion-icon name="logo-twitter"></ion-icon></button>
+        <button class="iconC1" target="_blank" ng-if="tiktok.id != undefined" ng-click="RedesSociales(tiktok.social_media)"><ion-icon name="logo-tiktok"></ion-icon</button>
+        <button class="iconC1" target="_blank" ng-if="comercioTelefonos[0].phone.length == 10" ng-click="RedesSociales('https://wa.me/'+57+comercioTelefonos[0].phone)">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </button>
+    </div>
+    
+    <hr class="linea">
+
+    <!-- IMAGENES DE COEMRCIO -->
+    <div class="sliderQS">
+        <div class="slide-track">
+            <div class="slide" ng-repeat="imagen in comercioImagenes track by $index">
+                <img ng-src="https://majii.co{{imagen.url + imagen.img_commerce}}" alt="">
+            </div>
+        </div>
+    </div>
+      
+    <!-- MAPA Y COMENTARIOS -->
+    <!-- Mapa -->
+    <hr class="linea">
+
+    <div class="containerMCC1">
+        <div class="row containerHeight">
+            <div class="comMapa col order-first" ng-init="initMap()">
+                <h5>Mapa:</h5>
+                <div id="map" width="400" height="300" style="border:0;height: 100%;" allowfullscreen="" loading="lazy"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="linea">
+
+    <!-- Danos tu opinion -->
+    <div class="opinion">
+        <h2>Danos tu opinión:</h2>
+        
+        <div class="expContainer">
+            <div class="d-flex align-items-center">
+
+                <div class="flex-shrink-0">
+                    <div class=""><img src="/assets/img/ImgCom1/Opinion.png" alt=""></div>  
+                </div>
+                
+                <form name="frm" class="flex-grow-1 ms-3" ng-submit="frm.$valid && comentar()" novalidate>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" name="floatingTextarea2" id="floatingTextarea2" style="height: 100px" ng-model="comentario.mensaje" ng-required="true"></textarea>
+                        <label for="floatingTextarea2">Comentario</label>
+                    </div>
+                    <span ng-show="frm.floatingTextarea2.$touched && frm.floatingTextarea2.$error.required">El comentario es obligatorio.</span>
+
+                    <div class="d-flex opExperiencia flex-row bd-highlight mb-3">
+
+                        <div class="p-2 calExp bd-highlight"><h5>Califica tu experiencia:</h5></div>
+        
+                        <div class="p-2 bd-highlight">
+                            <div class="expCometario">
+                                <button class="expEstrella" type="button" value="5" ng-click="calificar(1)"><ion-icon ng-attr-name="{{comentario.puntaje >= 1 && 'star' || 'star-outline'}}" name="star-outline"></ion-icon></button>
+                                <button class="expEstrella" type="button" value="4" ng-click="calificar(2)"><ion-icon ng-attr-name="{{comentario.puntaje >= 2 && 'star' || 'star-outline'}}"></ion-icon></button>
+                                <button class="expEstrella" type="button" value="3" ng-click="calificar(3)"><ion-icon ng-attr-name="{{comentario.puntaje >= 3 && 'star' || 'star-outline'}}"></ion-icon></button>
+                                <button class="expEstrella" type="button" value="2" ng-click="calificar(4)"><ion-icon ng-attr-name="{{comentario.puntaje >= 4 && 'star' || 'star-outline'}}"></ion-icon></button>
+                                <button class="expEstrella" type="button" value="1" ng-click="calificar(5)"><ion-icon ng-attr-name="{{comentario.puntaje >= 5 && 'star' || 'star-outline'}}"></ion-icon></button>
+                            </div>
+                        </div>
+
+                        <div class="p-2 bd-highlight">
+                            <input type="submit" class="btnC1" value="Comentar"/>
+                        </div>
+                    </div>
+                    <span ng-show="puntajeVacio">La calificacion es obligatoria.</span>
+                    <h3 ng-show="enviado" >Gracias por su comentario</h3>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+    <hr class="linea">
+
+    <div class="comentario">
+        <h5>Comentarios:</h5>
+
+        <p ng-repeat-start="comentarioR in comentarios | orderBy:'-id' | limitTo:3">{{comentarioR.mensaje}}</p>
+        <div class="comCalificacion" ng-repeat-end>
+            <button class="comEstrella" type="button"><ion-icon ng-attr-name="{{comentarioR.puntaje >= 1 && 'star' || 'star-outline'}}"></ion-icon></button>
+            <button class="comEstrella" type="button"><ion-icon ng-attr-name="{{comentarioR.puntaje >= 2 && 'star' || 'star-outline'}}"></ion-icon></button>
+            <button class="comEstrella" type="button"><ion-icon ng-attr-name="{{comentarioR.puntaje >= 3 && 'star' || 'star-outline'}}"></ion-icon></button>
+            <button class="comEstrella" type="button"><ion-icon ng-attr-name="{{comentarioR.puntaje >= 4 && 'star' || 'star-outline'}}"></ion-icon></button>
+            <button class="comEstrella" type="button"><ion-icon ng-attr-name="{{comentarioR.puntaje >= 5 && 'star' || 'star-outline'}}"></ion-icon></button>
+        </div>
+    </div>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <img class="imgR rounded mx-auto d-block" src="/assets/img/Registro.png">
+    <br>
+    <br>
+
+    <!-- Formulario -->
+    <form name="registroForm" class="row forRegistro g-3" ng-submit="registroForm.$valid && enviar()" novalidate autocomplete="off">
+            <h2 ng-show="enviado">Gracias por registrarte, pronto nos pondremos en contacto.</h2>
+            <div class="col-md-6">
+                <label for="NombreSolicita" class="form-label">Nombre de quien solicita *</label>
+                <input type="text" name="NombreSolicita" class="form-control" ng-model="registro.NombreSolicita" ng-required="true">
+                <span ng-show="registroForm.NombreSolicita.$touched && registroForm.NombreSolicita.$error.required">El nombre de quien solicita es necesario.</span>
+            </div>
+            <div class="col-md-5">
+                <label for="NombreComercio" class="form-label">Nombre del comercio *</label>
+                <input type="text" class="form-control" name="NombreComercio" ng-model="registro.NombreComercio" ng-required="true">
+                <span ng-show="registroForm.NombreComercio.$touched && registroForm.NombreComercio.$error.required">El nombre del comercio es necesario.</span>
+            </div>
+            <div class="col-md-4 regCorreo">
+                <label for="Correo" class="form-label">Correo electrónico *</label>
+                <div class="input-group igRegistro">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    <input type="email" class="form-control" name="Correo"  aria-describedby="inputGroupPrepend2" ng-model="registro.Correo" ng-required="true">
+                </div>
+                <span ng-show="registroForm.Correo.$touched && registroForm.Correo.$error.email">El correo no esta en un formato valido.</span>
+                <span ng-show="registroForm.Correo.$touched && registroForm.Correo.$error.required">El correo es necesario.</span>
+            </div>
+            <div class="col-md-4">
+                <label for="Telefono" class="form-label">Teléfono / celular *</label>
+                <input type="text" class="form-control" name="Telefono" ng-model="registro.Telefono" ng-required="true" ng-minlength="7" ng-maxlength="10" ng-pattern="/^[0-9]*$/">
+                <span ng-show="registroForm.Telefono.$touched && registroForm.Telefono.$error.minlength">min 7 caracteres.</span>
+                <span ng-show="registroForm.Telefono.$touched && registroForm.Telefono.$error.maxlength">Max 10 caracteres.</span>
+                <span ng-show="registroForm.Telefono.$touched && registroForm.Telefono.$error.required">El teléfono es necesario.</span>
+                <span ng-show="registroForm.Telefono.$error.pattern">Solo se permiten números!</span>
+            </div>
+            <div class="col-md-3">
+                <label for="Horario" class="form-label">
+                    Horario de visita (AM / PM) *
+                </label>
+                <select class="form-control" name="Horario" ng-model="registro.Horario" ng-required="true">
+                    <option value="">Seleccione una opción</option>
+                    <option value="AM">A.M.</option>
+                    <option value="PM">P.M.</option>
+                </select>
+                <span ng-show="registroForm.Horario.$touched && registroForm.Horario.$error.required">El horario es necesario.</span>
+            </div>
+            <div class="col-12">
+                <span ng-show="registroForm.$invalid" ng-hide="registroForm.NombreSolicita.$touched || registroForm.NombreComercio.$touched || registroForm.Correo.$touched || registroForm.Telefono.$touched">
+                    Todos los campos con * son obligatorios.</span>
+            </div>
+
+            <div class="col-12 btnReg">
+                <input type="submit" class="btnEnviar" value="Enviar"/>
+            </div>
+    </form>
+
+   
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Contenido -->
+<div class="ContainerQS">
+    <img class="imgQS rounded mx-auto d-block" src="assets/img/QuienesSomos.png">
+    <br>
+    <p>{{quienesSomos.PrimerTexto}}</p>
+    <br>
+    <img class="imgQS1" ng-src="{{quienesSomos.ImagenPrincipal.url}}" alt="Imagen">
+    <br>
+    <hr class="linea">
+    <p>{{quienesSomos.SegundoTexto}} </p>
+    <hr class="linea">
+</div>
+
+<!-- Misión y Visión -->
+<div class="ContainerMV">
+    <img class="imgMV rounded mx-auto d-block" src="assets/img/Mision y Vision.png" alt="Misión y Visión">
+    <br>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col2">
+            <div class="cardMV h-100">
+                <div class="card-body">
+                    <p>{{quienesSomos.Mision}} </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col2">
+            <div class="cardMV h-100">
+                <div class="card-body">
+                    <p>{{quienesSomos.Vision}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="linea">
+</div>
+
+<!-- Galeria de imagenes -->
+<div class="sliderQS">
+    <div class="slide-track">
+        <div class="slide" ng-repeat="imagen in imagenes track by $index">
+            <img ng-src="{{imagen.url}}" alt="">
+        </div>
+    </div>
+</div>
+
+</html>

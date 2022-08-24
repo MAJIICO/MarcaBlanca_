@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Contenido -->
+
+<img class="imgCF rounded mx-auto d-block" src="assets/img//Capacitacion y Formacion.png">
+<br>
+<br>
+
+<div class="containerCard">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col1" ng-repeat="capacitacion in capacitaciones">
+            <div class="card h-100">
+                <img ng-src="{{capacitacion.Imagen.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{capacitacion.TituloActivdad}}</h5>
+                    <p class="card-text">
+                        {{capacitacion.DetalleActividad}},
+                        {{capacitacion.LugarActividad}},
+                        {{capacitacion.FechaActividad}},
+                        {{capacitacion.Requisitos}},
+                        {{capacitacion.Informes}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</html>

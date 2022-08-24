@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- FILTRO Y BUSCADOR -->
+<form class="d-flex rounded mx-auto d-block justify-content-center search">
+    
+    <!-- Filtro -->
+    <div class="dropdown">
+        <button class="btnRB" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            <ion-icon class="icnResBusqueda" name="filter-outline"></ion-icon>
+        </button>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Cat1" ng-checked="category == 1" ng-click="selectOnlyThis(1)">
+                <label class="form-check-label" for="Cat1">
+                   <p>Comida</p>
+                </label>
+            </div> 
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Cat2" ng-checked="category == 2" ng-click="selectOnlyThis(2)">
+                <label class="form-check-label" for="Cat2">
+                    <p>Belleza</p>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Cat3" ng-checked="category == 3" ng-click="selectOnlyThis(3)">
+                <label class="form-check-label" for="Cat3">
+                    <p>Vestuario</p>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Cat4" ng-checked="category == 4" ng-click="selectOnlyThis(4)">
+                <label class="form-check-label" for="Cat4">
+                    <p>Salud</p>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Cat5" ng-checked="category == 6" ng-click="selectOnlyThis(6)">
+                <label class="form-check-label" for="Cat6">
+                    <p>Marca Ciudad</p>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Cat6" ng-checked="category == 99" ng-click="selectOnlyThis(99)">
+                <label class="form-check-label" for="Cat99">
+                    <p>Otros</p>
+                </label>
+            </div>
+        </ul>
+    </div>
+
+    <!-- Buscador -->
+    <input class="buscador" type="search" placeholder="Buscar" ng-model="palabra">
+
+    <button class="btnBuscador btn-outline-success" ng-click="buscar()">
+        <ion-icon class="icnBuscador" name="search-outline"></ion-icon>
+    </button>
+
+</form>
+
+<!-- Contenido -->
+<img class="imgRB rounded mx-auto d-block" src="assets/img/Resultadosdelabusqueda.png">
+
+
+<div class="containerCardRB" ng-init="buscar()">
+   
+    <div class="row del row-cols-1 row-cols-md-2 g-2"> 
+        <div class="col2" ng-repeat="comercio in comercios | filter : paginate">
+            <div class="row">
+                <div class="col-md-6 p-md-4">
+                    <img ng-src="{{comercio.imagen}}" class="w-100 imgResBusqueda" alt="...">
+                </div>
+                <div class="textoRB col-md-6 p-4">
+                    <h5 class="mt-0">{{comercio.name}}</h5>
+                    <p>{{comercio.description}}</p>
+                    <h6 class="mt-0" ng-if="comercio.distancia != undefined">{{comercio.distancia}} Metros</h6>
+             
+                    <div class="RedesSocialesRB">
+                        <button class="iconRB" target="_blank" ng-if="comercio.facebook != undefined"  ng-click="RedesSociales(comercio.facebook)"><ion-icon name="logo-facebook"></ion-icon></button>
+                        <button class="iconRB" target="_blank" ng-if="comercio.instagram != undefined" ng-click="RedesSociales(comercio.instagram)"><ion-icon name="logo-instagram"></ion-icon></button>
+                        <button class="iconRB" target="_blank" ng-if="comercio.twitter != undefined" ng-click="RedesSociales('https://twitter.com/'+comercio.twitter)"><ion-icon name="logo-twitter"></ion-icon></button>
+                        <button class="iconRB" target="_blank" ng-if="comercio.tiktok != undefined" ng-click="RedesSociales(comercio.tiktok)"><ion-icon name="logo-tiktok"></ion-icon></button>
+                        <button class="iconRB" target="_blank" ng-if="comercio.telefono.length == 10" ng-click="RedesSociales('https://wa.me/'+57+comercio.telefono)">
+                            <ion-icon name="logo-whatsapp"></ion-icon>
+                        </button>
+                    </div>
+
+                    <a ng-href="#!/comercio/{{comercio.id}}">Ver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <pagination total-items="totalItems" ng-model="currentPage"
+        max-size="5"
+        items-per-page="numPerPage" class="pagination justify-content-center" ng-show="comercios.length > 0">
+    </pagination>
+    
+    <h2 style="color: #1469A4;" ng-show="comercios.length == 0">No hay resultados de la búsqueda</h2>
+</div>
+
+</html>

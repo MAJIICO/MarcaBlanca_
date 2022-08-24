@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- BUSCADOR Y CATEGORIAS SUPERIORES-->
+
+    <!-- Buscador -->
+    <form class="d-flex rounded mx-auto d-block justify-content-center search">
+
+        <input class="buscador" type="search" placeholder="Buscar" ng-model="palabra">
+
+        <button class="btnBuscador btn-outline-success " ng-click="buscar()">
+            <ion-icon class="icnBuscador " name="search-outline"></ion-icon>
+        </button>
+
+    </form>
+
+    <!-- Categorías Superiores -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container wrapper">
+            <div class="collapse colCat navbar-collapse" id="navbarSupportedContentSC">
+                <ul class="navbar-nav ulSC nav-justified  mb-lg-0">
+                    <li class="nav-item menuOtr">
+                        <a class="nav-linkSC">
+                            <div class="imgCatSuperiores">
+                                <img src="/assets/img/Categorías/catComida.png" alt="#">
+                                <img src="/assets/img/Categorías/icnComida.png" alt="#">
+                            </div>
+                            <a class="name desktop-item" data-text="Comida">Comida</a>
+                            <input type="checkbox" id="showMegaCo">
+                            <label for="showMegaCo" class="mobile-item">Comida</label>
+                            <div class="mega-box">
+                                <div class="content">
+                                    <div class="row">
+                                        <ul class="mega-links">
+                                            <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 1 }">
+                                                <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item menuOtr">
+                        <a class="nav-linkSC">
+                            <div class="imgCatSuperiores">
+                                <img src="/assets/img/Categorías/catBelleza.png" alt="#">
+                                <img src="/assets/img/Categorías/icnBelleza.png" alt="#">
+                            </div>
+                            <a class="name desktop-item" data-text="Belleza">Belleza</a>
+                            <input type="checkbox" id="showMegaB">
+                            <label for="showMegaB" class="mobile-item">Belleza</label>
+                            <div class="mega-box">
+                                <div class="content">
+                                    <div class="row">
+                                        <ul class="mega-links">
+                                            <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 2 }">
+                                                <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item menuOtr">
+                        <a class="nav-linkSC">
+                            <div class="imgCatSuperiores">
+                                <img src="/assets/img/Categorías/catVestuario.png" alt="#">
+                                <img src="/assets/img/Categorías/icnVestuario.png" alt="#">
+                            </div>
+                            <a class="name desktop-item" data-text="Vestuario">Vestuario</a>
+                            <input type="checkbox" id="showMegaV">
+                            <label for="showMegaV" class="mobile-item">Vestuario</label>
+                            <div class="mega-box">
+                                <div class="content">
+                                    <div class="row">
+                                        <ul class="mega-links">
+                                            <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 3 }">
+                                                <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item menuOtr">
+                        <a class="nav-linkSC">
+                            <div class="imgCatSuperiores">
+                                <img src="/assets/img/Categorías/catSalud.png" alt="#">
+                                <img src="/assets/img/Categorías/icnSalud.png" alt="#">
+                            </div>
+                            <a class="name desktop-item" data-text="Salud">Salud</a>
+                            <input type="checkbox" id="showMegaS">
+                            <label for="showMegaS" class="mobile-item">Salud</label>
+                            <div class="mega-box">
+                                <div class="content">
+                                    <div class="row">
+                                        <ul class="mega-links">
+                                            <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 4 }">
+                                                <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!--<li class="nav-item menuOtr">
+                        <a class="nav-linkSC">
+                            <div class="imgCatSuperiores">
+                                <img src="/assets/img/Categorías/catLogoMCR.png" alt="#">
+                                <img src="/assets/img/Categorías/catMCR.png" alt="#">
+                            </div>
+                            <a class="name desktop-item" data-text="MarcaCiudad">Marca Ciudad</a>
+                            <input type="checkbox" id="showMegaMC">
+                            <label for="showMegaMC" class="mobile-item">Marca Ciudad</label>
+                            <div class="mega-box">
+                                <div class="content">
+                                    <div class="row">
+                                        <ul class="mega-links">
+                                            <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 6 }">
+                                                <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>-->
+                    <li class="nav-item menuOtr">
+                        <a class="nav-linkSC">
+                            <div class="imgCatSuperiores">
+                                <img src="/assets/img/Categorías/catOtros.png" alt="#">
+                                <img src="/assets/img/Categorías/icnOtros.png" alt="#">
+                            </div>
+                            <a class="name desktop-item" data-text="Otros">Otras Categorías</a>
+                            <input type="checkbox" id="showMegaO">
+                            <label for="showMegaO" class="mobile-item">Otras Categorías</label>
+                            <div class="mega-box mbOtros">
+                                <div class="content">
+                                    <div class="row">
+                                        <ul class="mega-links">
+                                            <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 99 }">
+                                                <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cotenido -->
+    <div class="containerP">
+
+
+        <hr class="linea">
+        
+        <!-- Top 10 -->    
+        <div class="CarouselT10">
+            <img class="imgT rounded mx-auto d-block" src="/assets/img/Top 10.png">
+            <br>
+            <div class="slick-list" id="slick-list">
+                <button class="slick-arrow slick-prev" id="button-prev">
+                    <ion-icon name="chevron-back"></ion-icon>
+                </button>
+                <div class="slick-track" id="track">
+                    <div class="slick" ng-repeat="top in top10" on-finish-render="ngRepeatFinished">
+                        <div>
+                            <a ng-href="#!/comercio/{{top.id}}">
+                                <picture>
+                                    <img ng-src="{{top.imagen}}" alt="Imagen">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="slick-arrow slick-next" id="button-next">
+                    <ion-icon name="chevron-forward"></ion-icon>
+                </button>
+            </div>
+        </div>
+            
+        <hr class="linea">
+
+        <!-- Categorías -->
+        <img src="/assets/img/Categorias.png" alt="" class="imgC rounded mx-auto d-block">
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container wrapper">
+                              
+                <div class=" colCat navbar-collapse">
+                    <ul class="navbar-nav ulSC nav-justified  mb-lg-0">
+    
+                        <li class="nav-item menuOtr">
+                            <a class="nav-linkSC">
+                                <div class="imgCatSuperiores">
+                                    <img src="/assets/img/Categorías/catComida.png" alt="#">
+                                    <img src="/assets/img/Categorías/icnComida.png" alt="#">
+                                </div>
+                                <a class="name desktop-item" data-text="Comida">Comida</a>
+                                <input type="checkbox" id="showMegaComi">
+                                <label for="showMegaComi" class="mobile-item">Comida</label>
+                                <div class="mega-boxCat">
+                                    <div class="contentCat">
+                                        <div class="row">
+                                            <ul class="mega-links">
+                                                <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 1 }">
+                                                    <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item menuOtr">
+                            <a class="nav-linkSC">
+                                <div class="imgCatSuperiores">
+                                    <img src="/assets/img/Categorías/catBelleza.png" alt="#">
+                                    <img src="/assets/img/Categorías/icnBelleza.png" alt="#">
+                                </div>
+                                <a class="name desktop-item" data-text="Belleza">Belleza</a>
+                                <input type="checkbox" id="showMegaBell">
+                                <label for="showMegaBell" class="mobile-item">Belleza</label>
+                                <div class="mega-boxCat">
+                                    <div class="contentCat">
+                                        <div class="row">
+                                            <ul class="mega-links">
+                                                <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 2 }">
+                                                    <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item menuOtr">
+                            <a class="nav-linkSC">
+                                <div class="imgCatSuperiores">
+                                    <img src="/assets/img/Categorías/catVestuario.png" alt="#">
+                                    <img src="/assets/img/Categorías/icnVestuario.png" alt="#">
+                                </div>
+                                <a class="name desktop-item" data-text="Vestuario">Vestuario</a>
+                                <input type="checkbox" id="showMegaVest">
+                                <label for="showMegaVest" class="mobile-item">Vestuario</label>
+                                <div class="mega-boxCat">
+                                    <div class="contentCat">
+                                        <div class="row">
+                                            <ul class="mega-links">
+                                                <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 3 }">
+                                                    <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item menuOtr">
+                            <a class="nav-linkSC">
+                                <div class="imgCatSuperiores">
+                                    <img src="/assets/img/Categorías/catSalud.png" alt="#">
+                                    <img src="/assets/img/Categorías/icnSalud.png" alt="#">
+                                </div>
+                                <a class="name desktop-item" data-text="Salud">Salud</a>
+                                <input type="checkbox" id="showMegaSalu">
+                                <label for="showMegaSalu" class="mobile-item">Salud</label>
+                                <div class="mega-boxCat">
+                                    <div class="contentCat">
+                                        <div class="row">
+                                            <ul class="mega-links">
+                                                <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 4 }">
+                                                    <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--
+                        <li class="nav-item menuOtr">
+                            <a class="nav-linkSC">
+                                <div class="imgCatSuperiores">
+                                    <img src="/assets/img/Categorías/catLogoMCR.png" alt="#">
+                                    <img src="/assets/img/Categorías/catMCR.png" alt="#">
+                                </div>
+                                <a class="name desktop-item" data-text="MarcaCiudad">Marca Ciudad</a>
+                                <input type="checkbox" id="showMegaMarCiud">
+                                <label for="showMegaMarCiud" class="mobile-item">Marca Ciudad</label>
+                                <div class="mega-boxCat">
+                                    <div class="contentCat">
+                                        <div class="row">
+                                            <ul class="mega-links">
+                                                <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 6 }">
+                                                    <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>-->
+                        <li class="nav-item menuOtr">
+                            <a class="nav-linkSC">
+                                <div class="imgCatSuperiores">
+                                    <img src="/assets/img/Categorías/catOtros.png" alt="#">
+                                    <img src="/assets/img/Categorías/icnOtros.png" alt="#">
+                                </div>
+                                <a class="name desktop-item" data-text="Otros">Otras Categorías</a>
+                                <input type="checkbox" id="showMegaOtrCate">
+                                <label for="showMegaOtrCate" class="mobile-item">Otras Categorías</label>
+                                <div class="mega-boxCat mbOtros">
+                                    <div class="contentCat">
+                                        <div class="row">
+                                            <ul class="mega-links">
+                                                <li ng-repeat="sub in subcategorias | filter:{ class_commerce_sup: 99 }">
+                                                    <a ng-href="#!/comercios/subcategory.{{sub.class_commerce}}">{{sub.descripcion}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+       
+</html>

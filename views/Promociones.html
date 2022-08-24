@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Contenido -->
+    <img class="imgQS rounded mx-auto d-block" src="/assets/img/Promociones.png">
+    <br>
+    <br>
+    <div class="promContainer">
+        <div class="d-flex align-items-center" ng-repeat="promocion in promociones">
+            <div class="flex-shrink-0" ng-show="$even">
+                <img class="imgP" ng-src="{{promocion.Imagen.url}}" alt="...">
+            </div>
+            <div class="infoProm flex-grow-1 ms-3">
+                <h2>{{promocion.Titulo}} - {{promocion.NombreComercio}}</h2>
+                <p class="text-break"> {{promocion.DescripcionPromocion}}</p>
+                <div class="fecContainer">
+                    <div class="row fecProm justify-content-start">
+                        <div class="col-4">
+                            Tiempo promocion: {{promocion.TiempoPromocion}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0" ng-show="$odd">
+                <img class="imgP" ng-src="{{promocion.Imagen.url}}" alt="...">
+            </div>
+        </div>
+    </div>
+</html>
